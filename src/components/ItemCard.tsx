@@ -27,18 +27,18 @@ export default function ItemCard({
         <img
           src={image}
           alt={title}
-          className="w-16 h-16 object-cover rounded-lg"
+          className="w-20 h-15 object-cover rounded-lg"
         />
       </div>
 
-      <div className="flex flex-col justify-center items-center w-full h-full gap-2">
+      <div className="flex flex-col justify-center items-start w-full h-full gap-2">
         <span className="text-sm">
-          <span className="text-lg font-semibold">{title}</span>
+          <span className="text-base font-semibold">{title}</span>
           {" - "}
           {description}{" "}
         </span>
         {/* <div className="flex justify-start items-center"> */}
-        <span className="flex justify-start items-center gap-1">
+        <span className="flex justify-start items-start gap-1">
           {tags.map((tag, index) => (
             <Badge
               variant="outline"
