@@ -1,4 +1,4 @@
-import { FileText, Globe, Mail } from "lucide-react";
+import { FileText, Github, Globe, Linkedin, Mail } from "lucide-react";
 import React from "react";
 import { Badge } from "../ui/badge";
 import { cn } from "@/lib/utils";
@@ -25,60 +25,42 @@ export default function AboutMe({
   resume,
 }: Props) {
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center gap-2 bg-primary-foreground mb-4">
-      <div className="w-full flex justify-between items-center ">
-        <div className="inline-flex justify-center items-center gap-1 text-sm">
-          <Globe size={20} />
-          {role}
-        </div>
-        <div className="inline-flex gap-1 justify-center items-center text-sm">
-          <Badge
-            variant="outline"
-            className={cn(
-              availability === "available"
-                ? "bg-green-500 text-green-200"
-                : availability === "open"
-                ? "bg-yellow-500 text-yellow-200"
-                : "bg-red-500 text-red-200"
-            )}
-          >
-            {availability === "available"
-              ? "Available"
-              : availability === "open"
-              ? "Open to offers"
-              : "Unavailable"}
-          </Badge>
-        </div>
-      </div>
-      <div className="flex justify-between items-center w-full">
-        <div className="flex justify-center flex-col items-start">
-          <h1 className="text-3xl font-semibold">Hello, I'm {name}</h1>
-          <p>
-            A {role} based in {location}.
+    <div className="max-w-2xl w-full h-full flex flex-col justify-center items-center gap-2 rounded-xl p-2">
+      <div className="flex w-full justify-between items-center gap-2">
+        <div className="flex-col flex flex-1 justify-center items-start ">
+          <h2 className="flex text-4xl font-bold">hi, i'm {name} 👋</h2>
+          <p className="flex text-xl font-light">
+            Aspiring {role} based in {location} 🇨🇦. <br />
+            Passionate about building things and challenging myself.
+            <br />
+            Love to travel, willing to relocate ✈️.
           </p>
         </div>
-        <img
-          src={image}
-          alt={name}
-          className="w-24 h-24 rounded-lg object-cover"
-        />
-      </div>
-      <div className="flex justify-center items-center gap-2">
-        {/* Email Button */}
-        <Link href={`mailto:${email}`}>
-          <Button variant="ghost" className="gap-2">
-            <Mail size={20} />
-            Contact Me
-          </Button>
-          {/* <a className="text-primary underline">{email}</a> */}
-        </Link>
-        {/* Resume Button */}
-        <Link href={resume}>
-          <Button variant="ghost" className="gap-2">
-            <FileText size={20} />
-            Resume
-          </Button>
-        </Link>
+        <div className="flex-col justify-items-center">
+          <div className="inline-flex justify-center text-xs my-2">
+            <Badge
+              variant="outline"
+              className={cn(
+                availability === "available"
+                  ? "bg-green-500 text-green-200"
+                  : availability === "open"
+                  ? "bg-yellow-500 text-yellow-200"
+                  : "bg-red-500 text-red-200"
+              )}
+            >
+              {availability === "available"
+                ? "Available"
+                : availability === "open"
+                ? "Open to offers"
+                : "Unavailable"}
+            </Badge>
+          </div>
+          <img
+            src={image}
+            alt={name}
+            className="w-24 h-24 rounded-full object-fill"
+          />
+        </div>
       </div>
     </div>
   );
