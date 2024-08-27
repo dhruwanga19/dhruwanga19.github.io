@@ -72,7 +72,7 @@ export const DATA = {
     },
     Resume: {
       name: "Hire Me",
-      url: "/public/Dhruwang2024.pdf",
+      url: "./Dhruwang2024.pdf",
       icon: DiamondPlus,
 
       navbar: true,
@@ -86,7 +86,7 @@ export const DATA = {
       badges: [],
       location: "Remote",
       title: "Software Engineer for AI Training",
-      logoUrl: "/public/outlier_logo.svg",
+      logoUrl: "./outlier_logo.svg",
       start: "Jun 2024",
       end: "Present",
       description:
@@ -98,7 +98,7 @@ export const DATA = {
       href: "https://www.rahilflexipack.com/",
       location: "Rajkot, India",
       title: "Front End Developer",
-      logoUrl: "/public/Rhyno_logo.png",
+      logoUrl: "./Rhyno_logo.png",
       start: "May 2023",
       end: "September 2023",
       description:
@@ -111,7 +111,7 @@ export const DATA = {
       href: "https://uwo.ca",
       degree:
         "Bachelor's in Computer Science, Specialization with Minor in Software Engineering",
-      logoUrl: "/public/westernuniv.jpg",
+      logoUrl: "./westernuniv.jpg",
       start: "2020",
       end: "2024",
     },
@@ -119,7 +119,7 @@ export const DATA = {
       school: "International Baccalaureate",
       href: "https://ibo.org",
       degree: "IB Diploma",
-      logoUrl: "/public/ib.png",
+      logoUrl: "./ib.png",
       start: "2018",
       end: "2020",
     },
@@ -149,7 +149,7 @@ export const DATA = {
           icon: "",
         },
       ],
-      image: "/public/londonchatbot.jpg",
+      image: "./londonchatbot.jpg",
       video: "",
     },
     {
@@ -178,7 +178,7 @@ export const DATA = {
           icon: "",
         },
       ],
-      image: "/public/ezcalendardash.jpg",
+      image: "./ezcalendardash.jpg",
       video: "",
     },
     {
@@ -196,7 +196,7 @@ export const DATA = {
           icon: "",
         },
       ],
-      image: "/public/raspman.jpg",
+      image: "./raspman.jpg",
       video: "",
     },
     {
@@ -214,7 +214,7 @@ export const DATA = {
           icon: "",
         },
       ],
-      image: "/public/hwm_dhr.jpg",
+      image: "./hwm_dhr.jpg",
       video: "",
     },
   ],
