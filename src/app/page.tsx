@@ -16,7 +16,7 @@ const BLUR_FADE_DELAY = 0.05;
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between mt-4">
+    <main className="flex min-h-screen flex-col items-center justify-between mt-20">
       <div className="max-w-2xl space-y-4">
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <AboutMe
@@ -116,9 +116,16 @@ export default function Home() {
                     Check out my latest work
                   </h2>
                   <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    I&apos;ve worked on a variety of projects, from simple
-                    websites to complex web applications. Here are a few of my
-                    favorites.
+                    I&apos;ve worked on a variety of{" "}
+                    <Link
+                      className="text-blue-500 hover:underline"
+                      href={DATA.contact.social.GitHub.url}
+                    >
+                      {" "}
+                      projects{""}
+                    </Link>
+                    , from simple websites to complex web applications. Here are
+                    a few of my favorites.
                   </p>
                 </div>
               </div>
@@ -156,15 +163,21 @@ export default function Home() {
                   Get in Touch
                 </h2>
                 <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                  Want to chat? Just shoot me a dm{" "}
+                  Want to chat? Just shoot me an{" "}
                   <Link
-                    href={DATA.contact.email}
+                    className="text-blue-500 hover:underline"
+                    href={DATA.contact.social.Mail.url}
+                  >
+                    email
+                  </Link>{" "}
+                  or DM on{" "}
+                  <Link
+                    href={DATA.contact.social.LinkedIn.url}
                     className="text-blue-500 hover:underline"
                   >
-                    with a direct question on twitter
+                    LinkedIn
                   </Link>{" "}
-                  and I&apos;ll respond whenever I can. I will ignore all
-                  soliciting.
+                  or I am quick to respond. Let&apos;s connect!
                 </p>
               </div>
             </BlurFade>

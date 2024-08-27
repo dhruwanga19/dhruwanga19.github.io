@@ -37,7 +37,7 @@ export default function AboutMe({
           </p>
         </div>
         <div className="flex-col justify-items-center">
-          <div className="inline-flex justify-center text-xs my-2">
+          <div className="inline-flex justify-center text-md my-2">
             <Badge
               variant="outline"
               className={cn(
