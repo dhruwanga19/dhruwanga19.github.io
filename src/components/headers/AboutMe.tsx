@@ -4,6 +4,7 @@ import { Badge } from "../ui/badge";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import Image from "next/image";
 
 type Props = {
   name: string;
@@ -24,7 +25,7 @@ export default function AboutMe({
     <div className="max-w-2xl w-full h-full flex flex-col justify-center items-center gap-2 rounded-xl p-2">
       <div className="flex w-full justify-between items-center gap-2">
         <div className="flex-col flex flex-1 justify-center items-start ">
-          <h2 className="flex text-4xl font-bold">hi, i'm {name} 👋</h2>
+          <h2 className="flex text-4xl font-bold">hi, i&apos;m {name} 👋</h2>
           <p className="flex text-xl font-light">
             Aspiring {role} based in {location} 🇨🇦. <br />
             Passionate about building things and challenging myself.
@@ -51,9 +52,11 @@ export default function AboutMe({
                 : "Unavailable"}
             </Badge>
           </div>
-          <img
+          <Image
             src={image}
             alt={name}
+            width={100}
+            height={100}
             className="w-24 h-24 rounded-full object-fill"
           />
         </div>
