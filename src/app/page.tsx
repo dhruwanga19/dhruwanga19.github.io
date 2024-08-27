@@ -153,7 +153,7 @@ export default function Home() {
           </div>
         </section>
         <section id="contact">
-          <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12 mb-20">
+          <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12 ">
             <BlurFade delay={BLUR_FADE_DELAY * 16}>
               <div className="space-y-3">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
@@ -180,6 +180,13 @@ export default function Home() {
                   or I am quick to respond. Let&apos;s connect!
                 </p>
               </div>
+            </BlurFade>
+          </div>
+        </section>
+        <section id="footer">
+          <div className=" flex text-l items-end justify-end mb-5 p-5">
+            <BlurFade delay={BLUR_FADE_DELAY * 17}>
+              <span className="">Made with ❤️ by Dhruwang</span>
             </BlurFade>
           </div>
         </section>
