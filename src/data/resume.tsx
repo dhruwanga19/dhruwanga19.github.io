@@ -149,7 +149,8 @@ export const DATA = {
           icon: "",
         },
       ],
-      image: "./londonchatbot.jpg",
+      image:
+        "https://github.com/dhruwanga19/my-resume/blob/main/public/londonchatbot.JPG",
       video: "",
     },
     {
@@ -178,7 +179,8 @@ export const DATA = {
           icon: "",
         },
       ],
-      image: "./ezcalendardash.jpg",
+      image:
+        "https://github.com/dhruwanga19/my-resume/blob/main/public/ezcalendardash.JPG",
       video: "",
     },
     {
@@ -196,7 +198,8 @@ export const DATA = {
           icon: "",
         },
       ],
-      image: "./raspman.jpg",
+      image:
+        "https://github.com/dhruwanga19/my-resume/blob/main/public/raspman.JPG",
       video: "",
     },
     {
@@ -214,7 +217,8 @@ export const DATA = {
           icon: "",
         },
       ],
-      image: "./hwm_dhr.jpg",
+      image:
+        "https://github.com/dhruwanga19/my-resume/blob/main/public/hwm_dhr.JPG",
       video: "",
     },
   ],
