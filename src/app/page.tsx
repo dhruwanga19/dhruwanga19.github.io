@@ -24,9 +24,7 @@ export default function Home() {
             role="Software Engineer"
             availability="open"
             location="Canada"
-            email="dakbari2@uwo.ca"
             image={"./dhruwang0.jpg"}
-            resume={"./Dhruwang2024T.pdf"}
           />
         </BlurFade>
         <section

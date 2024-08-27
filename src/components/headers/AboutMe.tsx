@@ -10,9 +10,7 @@ type Props = {
   role: string;
   availability: "available" | "open" | "unavailable";
   location: string;
-  email: string;
   image: string;
-  resume: string;
 };
 
 export default function AboutMe({
@@ -20,9 +18,7 @@ export default function AboutMe({
   role,
   availability,
   location,
-  email,
   image,
-  resume,
 }: Props) {
   return (
     <div className="max-w-2xl w-full h-full flex flex-col justify-center items-center gap-2 rounded-xl p-2">
