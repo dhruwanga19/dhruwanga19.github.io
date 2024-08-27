@@ -217,12 +217,8 @@ export const DATA = {
           icon: "",
         },
       ],
-<<<<<<< HEAD
       image:
         "https://github.com/dhruwanga19/my-resume/blob/main/public/hwm_dhr.JPG",
-=======
-      image: "/hwm_dhr.jpg",
->>>>>>> 89f777881caca66322cb09b9175fab926b8617fa
       video: "",
     },
   ],
