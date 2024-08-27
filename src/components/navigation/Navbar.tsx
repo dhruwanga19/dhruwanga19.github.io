@@ -7,6 +7,7 @@ import { DATA } from "@/data/resume";
 import { Tooltip, TooltipContent, TooltipTrigger } from "../ui/tooltip";
 import { cn } from "@/lib/utils";
 import { Separator } from "../ui/separator";
+import { File } from "lucide-react";
 
 type Props = {};
 
@@ -61,6 +62,19 @@ export default function Navbar({}: Props) {
               </Tooltip>
             </DockIcon>
           ))}
+        <Separator orientation="vertical" className="h-full py-2" />
+        <DockIcon>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <Link href={DATA.contact.Resume.url}>
+                <Button variant="ghost" size="icon" className="size-12">
+                  <DATA.contact.Resume.icon className="size-4" />
+                </Button>
+              </Link>
+            </TooltipTrigger>
+            <TooltipContent>{DATA.contact.Resume.name}</TooltipContent>
+          </Tooltip>
+        </DockIcon>
         <Separator orientation="vertical" className="h-full py-2" />
         <DockIcon>
           <Tooltip>

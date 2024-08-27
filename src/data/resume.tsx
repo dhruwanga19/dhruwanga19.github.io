@@ -1,6 +1,7 @@
 // import { Icons } from "@/components/icons";
 
 import {
+  DiamondPlus,
   File,
   Github,
   Globe,
@@ -69,13 +70,13 @@ export const DATA = {
 
         navbar: true,
       },
-      Resume: {
-        name: "Resume",
-        url: "/Dhruwang2024T.pdf",
-        icon: File,
+    },
+    Resume: {
+      name: "Hire Me",
+      url: "/Dhruwang2024.pdf",
+      icon: DiamondPlus,
 
-        navbar: true,
-      },
+      navbar: true,
     },
   },
 
