@@ -8,6 +8,7 @@ import {
   Mail,
   NotebookIcon,
 } from "lucide-react";
+import { prefix } from "@/components/prefix";
 
 export const DATA = {
   name: "Dhruwang Akbari",
@@ -71,7 +72,7 @@ export const DATA = {
     },
     Resume: {
       name: "Hire Me",
-      url: "./Dhruwang2024.pdf",
+      url: `${prefix}/Dhruwang2024.pdf`,
       icon: DiamondPlus,
 
       navbar: true,
@@ -85,7 +86,7 @@ export const DATA = {
       badges: [],
       location: "Remote",
       title: "Software Engineer for AI Training",
-      logoUrl: "./outlier_logo.svg",
+      logoUrl: `${prefix}/outlier_logo.svg`,
       start: "Jun 2024",
       end: "Present",
       description:
@@ -97,7 +98,7 @@ export const DATA = {
       href: "https://www.rahilflexipack.com/",
       location: "Rajkot, India",
       title: "Front End Developer",
-      logoUrl: "./Rhyno_logo.png",
+      logoUrl: `${prefix}/Rhyno_logo.png`,
       start: "May 2023",
       end: "September 2023",
       description:
@@ -110,7 +111,7 @@ export const DATA = {
       href: "https://uwo.ca",
       degree:
         "Bachelor's in Computer Science, Specialization with Minor in Software Engineering",
-      logoUrl: "./westernuniv.jpg",
+      logoUrl: `${prefix}/westernuniv.jpg`,
       start: "2020",
       end: "2024",
     },
@@ -118,7 +119,7 @@ export const DATA = {
       school: "International Baccalaureate",
       href: "https://ibo.org",
       degree: "IB Diploma",
-      logoUrl: "./ib.png",
+      logoUrl: `${prefix}/ib.png`,
       start: "2018",
       end: "2020",
     },
@@ -148,7 +149,7 @@ export const DATA = {
           icon: "",
         },
       ],
-      image: "./londonchatbot.jpg",
+      image: `${prefix}/londonchatbot.jpg`,
       video: "",
     },
     {
@@ -177,7 +178,7 @@ export const DATA = {
           icon: "",
         },
       ],
-      image: "./ezcalendardash.jpg",
+      image: `${prefix}/ezcalendardash.jpg`,
       video: "",
     },
     {
@@ -195,7 +196,7 @@ export const DATA = {
           icon: "",
         },
       ],
-      image: "./raspman.jpg",
+      image: `${prefix}/raspman.jpg`,
       video: "",
     },
     {
@@ -213,7 +214,7 @@ export const DATA = {
           icon: "",
         },
       ],
-      image: "./hwm_dhr.jpg",
+      image: `${prefix}/hwm_dhr.jpg`,
       video: "",
     },
   ],
