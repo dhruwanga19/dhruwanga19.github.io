@@ -50,7 +50,7 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https:github.com/dhruwanga19",
+        url: "https://github.com/dhruwanga19",
         icon: Github,
 
         navbar: true,
@@ -214,7 +214,7 @@ export const DATA = {
           icon: "",
         },
       ],
-      image: "./hwm_dhr.jpg",
+      image: "/hwm_dhr.jpg",
       video: "",
     },
   ],
