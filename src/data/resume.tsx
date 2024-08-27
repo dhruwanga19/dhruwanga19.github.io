@@ -18,7 +18,7 @@ export const DATA = {
   locationLink: "https://www.google.com/maps/place/toronto",
   summary:
     "Started my journey at the peak of _[COVID-19](https://en.wikipedia.org/wiki/COVID-19)_, absolutely clueless, I started pursuing Computer Science since I knew I wanted to be on 💻 since childhood. I recently graduated from the _[University of Western Ontario](https://www.uwo.ca/)_ in the summer of 2024, where I was able to learn from the best and participate in hackathons. I have interned at some of the tech and retail companies, and I am currently working as a Software Engineer for AI Training at Outlier AI.",
-  avatarUrl: "/me.png",
+  avatarUrl: "./me.png",
   interests: [
     "Machine Learning",
     "Artificial Intelligence",
@@ -150,7 +150,7 @@ export const DATA = {
         },
       ],
       image:
-        "https://github.com/dhruwanga19/my-resume/blob/main/public/londonchatbot.JPG",
+        "https://raw.githubusercontent.com/dhruwanga19/my-resume/main/public/londonchatbot.JPG",
       video: "",
     },
     {
@@ -180,7 +180,7 @@ export const DATA = {
         },
       ],
       image:
-        "https://github.com/dhruwanga19/my-resume/blob/main/public/ezcalendardash.JPG",
+        "https://raw.githubusercontent.com/dhruwanga19/my-resume/main/public/ezcalendardash.JPG",
       video: "",
     },
     {
@@ -199,7 +199,7 @@ export const DATA = {
         },
       ],
       image:
-        "https://github.com/dhruwanga19/my-resume/blob/main/public/raspman.JPG",
+        "https://raw.githubusercontent.com/dhruwanga19/my-resume/main/public/raspman.JPG",
       video: "",
     },
     {
@@ -218,7 +218,7 @@ export const DATA = {
         },
       ],
       image:
-        "https://github.com/dhruwanga19/my-resume/blob/main/public/hwm_dhr.JPG",
+        "https://raw.githubusercontent.com/dhruwanga19/my-resume/main/public/hwm_dhr.JPG",
       video: "",
     },
   ],
