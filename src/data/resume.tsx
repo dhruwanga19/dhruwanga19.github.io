@@ -134,6 +134,7 @@ export const DATA = {
         "With the release of the OpenAI's _[ChatGPT](https://chatgpt.com/)_, I decided to build a chatbot which allows newcomers to London, Ontario to navigate around the city with ease. This chatbot provides all the information about the city through a RAG pipeline and directs the user with help of Places API.",
       technologies: [
         "React Native",
+        "Expo",
         "Python",
         "Flask",
         "Pinecone Vector Store",
