@@ -1,14 +1,9 @@
 import AboutMe from "@/components/headers/AboutMe";
-// import ItemCard from "@/components/ItemCard";
 import BlurFade from "@/components/magicui/blur-fade";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
-// import Section from "@/components/Sections";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
-// import { Item } from "@radix-ui/react-dropdown-menu";
-// import { Briefcase, Folder, GraduationCap } from "lucide-react";
-// import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
 
@@ -22,7 +17,7 @@ export default function Home() {
           <AboutMe
             name="dhruwang"
             role="Software Engineer"
-            availability="open"
+            availability="available"
             location="Canada"
             image={"./dhruwang0.jpg"}
           />
@@ -32,7 +27,7 @@ export default function Home() {
           id="about"
         >
           <BlurFade delay={BLUR_FADE_DELAY * 3}>
-            <h2 className="text-xl font-bold">Hello World</h2>
+            <h2 className="text-xl font-bold">Who Am I?</h2>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
             <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
@@ -168,21 +163,21 @@ export default function Home() {
                   >
                     email
                   </Link>{" "}
-                  or DM on{" "}
+                  or DM me on{" "}
                   <Link
                     href={DATA.contact.social.LinkedIn.url}
                     className="text-blue-500 hover:underline"
                   >
                     LinkedIn
                   </Link>{" "}
-                  or I am quick to respond. Let&apos;s connect!
+                  I am quick to respond. Let&apos;s connect!
                 </p>
               </div>
             </BlurFade>
           </div>
         </section>
         <section id="footer">
-          <div className=" flex text-l items-end justify-end mb-5 p-5">
+          <div className=" flex text-l items-end justify-end p-5">
             <BlurFade delay={BLUR_FADE_DELAY * 17}>
               <span className="">Made with ❤️ by Dhruwang</span>
             </BlurFade>

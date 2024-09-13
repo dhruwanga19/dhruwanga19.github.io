@@ -28,8 +28,8 @@ export default function AboutMe({
           <h2 className="flex text-4xl font-bold">hi, i&apos;m {name} 👋</h2>
           <p className="flex text-xl font-light">
             Aspiring {role} based in {location} 🇨🇦. <br />
-            Passionate about building things and challenging myself.
-            <br />
+            Constanly learning, building and challenging myself 🚀. <br />
+            Recent Graduate - Class of 2024 🎓. <br />
             Love to travel, willing to relocate ✈️.
           </p>
         </div>

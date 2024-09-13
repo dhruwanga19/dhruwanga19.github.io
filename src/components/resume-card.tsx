@@ -17,7 +17,7 @@ interface ResumeCardProps {
   href?: string;
   badges?: readonly string[];
   period: string;
-  description?: string;
+  description?: string | React.ReactNode;
 }
 export const ResumeCard = ({
   logoUrl,
@@ -39,13 +39,9 @@ export const ResumeCard = ({
   };
 
   return (
-    <Link
-      href={href || "#"}
-      className="block cursor-pointer"
-      onClick={handleClick}
-    >
-      <Card className="flex">
-        <div className="flex-none p-2">
+    <Card className="flex">
+      <div className="flex-none p-2">
+        <Link href={href || "#"} className="block cursor-pointer">
           <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
             <AvatarImage
               src={logoUrl}
@@ -54,14 +50,20 @@ export const ResumeCard = ({
             />
             <AvatarFallback>{altText[0]}</AvatarFallback>
           </Avatar>
-        </div>
-        <div className="flex-grow ml-4 items-center flex-col group">
+        </Link>
+      </div>
+      <div className="flex-grow ml-4 items-center flex-col group">
+        <Link
+          href={href || "#"}
+          className="block cursor-pointer"
+          onClick={handleClick}
+        >
           <CardHeader>
             <div className="flex items-center justify-between gap-x-2 text-base">
               <h3 className="inline-flex items-center justify-center font-semibold leading-none text-sm sm:text-sm">
                 {title}
                 {badges && (
-                  <span className="inline-flex gap-x-1">
+                  <span className="inline-flex gap-x-1 ml-2">
                     {badges.map((badge, index) => (
                       <Badge
                         variant="secondary"
@@ -86,25 +88,25 @@ export const ResumeCard = ({
             </div>
             {subtitle && <div className="font-sans text-sm">{subtitle}</div>}
           </CardHeader>
-          {description && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{
-                opacity: isExpanded ? 1 : 0,
+        </Link>
+        {description && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{
+              opacity: isExpanded ? 1 : 0,
 
-                height: isExpanded ? "auto" : 0,
-              }}
-              transition={{
-                duration: 0.7,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              className="mt-2 text-xs sm:text-sm"
-            >
-              {description}
-            </motion.div>
-          )}
-        </div>
-      </Card>
-    </Link>
+              height: isExpanded ? "auto" : 0,
+            }}
+            transition={{
+              duration: 0.7,
+              ease: [0.16, 1, 0.3, 1],
+            }}
+            className="mt-2 text-xs sm:text-sm"
+          >
+            <span>{description}</span>
+          </motion.div>
+        )}
+      </div>
+    </Card>
   );
 };

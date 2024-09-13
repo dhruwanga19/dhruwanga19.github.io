@@ -17,7 +17,7 @@ export const DATA = {
   location: "Canada",
   locationLink: "https://www.google.com/maps/place/toronto",
   summary:
-    "Started my journey at the peak of _[COVID-19](https://en.wikipedia.org/wiki/COVID-19)_, absolutely clueless, I started pursuing Computer Science since I knew I wanted to be on 💻 since childhood. I recently graduated from the _[University of Western Ontario](https://www.uwo.ca/)_ in the summer of 2024, where I was able to learn from the best and participate in hackathons. I have interned at some of the tech and retail companies, and I am currently working as a Software Engineer for AI Training at Outlier AI.",
+    "Started my journey at the peak of _[COVID-19](https://en.wikipedia.org/wiki/COVID-19)_, started pursuing a Computer Science degree right after my highschool, since I knew I wanted to be on 💻 since childhood. I recently graduated from the _[University of Western Ontario](https://www.uwo.ca/)_ (a proud Mustang) in the summer of 2024, where I was able to learn from the some of best professors and participate in hackathons. I am proud to be a part of Western Cyber Society student club where I led a team of 5 students to represent a Stock Trading algorithm using NLP and ML techniques at CUCAI 2024. I have interned at some of the tech and retail companies, and I am currently working as a Software Engineer for AI Training at Outlier AI.",
   avatarUrl: "./me.png",
   interests: [
     "Machine Learning",
@@ -29,8 +29,11 @@ export const DATA = {
   skills: [
     "Python",
     "Go",
-    "Next.js",
     "Typescript",
+    "C++",
+    "Swift",
+    "Next.js",
+
     "Node.js",
     "React",
     "MongoDB",
@@ -38,7 +41,6 @@ export const DATA = {
     "Docker",
     "AWS",
     "Java",
-    "C++",
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -83,26 +85,58 @@ export const DATA = {
     {
       company: "Outlier AI",
       href: "https://outlier.ai/",
-      badges: [],
+      badges: ["Swift", "Python", "Reinforcement Learning"],
       location: "Remote",
       title: "Software Engineer for AI Training",
       logoUrl: "./outlier_logo.svg",
       start: "Jun 2024",
-      end: "Present",
-      description:
-        " Implemented Reinforcement Learning with Human Feedback (RLHF) to improve AI-generated code accuracy by 30% through writing over 150 robust test cases in Swift and Python, rigorous evaluation of human-readable summaries and feedback chain of 200+ developers.",
+      end: "Sep 2024",
+      description: (
+        <ul>
+          <li>
+            &bull; Implemented Reinforcement Learning with Human Feedback (RLHF)
+            to improve AI-generated code accuracy by 30%.
+          </li>
+          <li>
+            &bull; Writing over 150 robust test cases in Swift and Python,
+            rigorous evaluation of human-readable summaries and feedback chain
+            of 200+ developers.
+          </li>
+        </ul>
+      ),
     },
     {
-      company: "Rahil Flexipack - Rhyno Group of Companies",
-      badges: [],
+      company: "Rahil Flexipack",
+      badges: ["React", "Next.js", "Tailwind CSS", "Jest"],
       href: "https://www.rahilflexipack.com/",
       location: "Rajkot, India",
       title: "Front End Developer",
       logoUrl: "./Rhyno_logo.png",
       start: "May 2023",
       end: "September 2023",
-      description:
-        "Maintained and updated new services page and product portfolios, ensuring accurate information was presented to potential clients, resulting in a 15% increase in inquiries. Used Jest to test react components using react-testing-library and mock API calls. Utilized Next.js and React.js with Framer Motion and Tailwind CSS for developing a dynamic and responsive front-end.",
+      description: (
+        <ul>
+          <li>
+            &bull; Maintained and updated new services page and product
+            portfolios, ensuring accurate information was presented to potential
+            clients, resulting in a 15% increase in inquiries.{" "}
+          </li>{" "}
+          <li>
+            &bull; Used Jest to test react components using
+            react-testing-library and mock API calls.
+          </li>
+          <li>
+            &bull; Utilized Next.js and React.js with Framer Motion and Tailwind
+            CSS for developing a dynamic and responsive front-end.
+          </li>
+          <li>
+            &bull; Visit:{" "}
+            <a className="text-blue-500" href="https://www.rahilflexipack.com/">
+              Rahil Flexipack
+            </a>
+          </li>
+        </ul>
+      ),
     },
   ],
   education: [
