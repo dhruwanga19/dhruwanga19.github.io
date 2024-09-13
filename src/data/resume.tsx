@@ -74,7 +74,7 @@ export const DATA = {
     },
     Resume: {
       name: "Hire Me",
-      url: "./Dhruwang2024.pdf",
+      url: "./Dhruwang2024Pub.pdf",
       icon: DiamondPlus,
 
       navbar: true,
