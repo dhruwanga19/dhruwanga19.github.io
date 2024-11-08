@@ -138,9 +138,9 @@ export const DATA = {
             </a>
           </li>
           <li>
-            &bull; Developed a mobile chatbot application using OpenAI's ChatGPT
-            to help newcomers to London, Ontario to navigate around the city
-            with ease.
+            &bull; Developed a mobile chatbot application using OpenAI&apos;s
+            ChatGPT to help newcomers to London, Ontario to navigate around the
+            city with ease.
           </li>
           <li>
             &bull; This chatbot provides all the information about the city
@@ -208,7 +208,7 @@ export const DATA = {
             Engineering
           </li>
           <li>&bull; Major Coursework </li>
-          <li>&bull; Achievements: Dean's Honour List</li>
+          <li>&bull; Achievements: Dean&apos;s Honour List</li>
           <li>
             &bull; Activites & Leadership:{" "}
             <a
