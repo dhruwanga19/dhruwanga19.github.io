@@ -1,8 +1,10 @@
 import CosmicSkills from "@/components/cosmic-skills";
+// import ExperienceSection from "@/components/experience-section";
 import AboutMe from "@/components/headers/AboutMe";
 import BlurFade from "@/components/magicui/blur-fade";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
+import { TimelineSection } from "@/components/timeline-experience";
 import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
@@ -42,7 +44,9 @@ export default function Home() {
               <h2 className="text-xl font-bold">Skills</h2>
             </BlurFade>
             <div className="flex justify-center w-full gap-1">
-              <CosmicSkills skills={DATA.skills} />
+              <BlurFade className="flex w-full" delay={BLUR_FADE_DELAY * 6}>
+                <CosmicSkills skills={DATA.skills} />
+              </BlurFade>
             </div>
           </div>
         </section>
@@ -51,24 +55,9 @@ export default function Home() {
             <BlurFade delay={BLUR_FADE_DELAY * 6}>
               <h2 className="text-xl font-bold">Work Experience</h2>
             </BlurFade>
-            {DATA.work.map((work, id) => (
-              <BlurFade
-                key={work.company}
-                delay={BLUR_FADE_DELAY * 7 + id * 0.05}
-              >
-                <ResumeCard
-                  key={work.company}
-                  logoUrl={work.logoUrl}
-                  altText={work.company}
-                  title={work.company}
-                  subtitle={work.title}
-                  href={work.href}
-                  badges={work.badges}
-                  period={`${work.start} - ${work.end ?? "Present"}`}
-                  description={work.description}
-                />
-              </BlurFade>
-            ))}
+            <BlurFade delay={BLUR_FADE_DELAY * 7}>
+              <TimelineSection items={DATA.work} />
+            </BlurFade>
           </div>
         </section>
         <section id="education">
@@ -76,23 +65,10 @@ export default function Home() {
             <BlurFade delay={BLUR_FADE_DELAY * 8}>
               <h2 className="text-xl font-bold">Education</h2>
             </BlurFade>
-            {DATA.education.map((education, id) => (
-              <BlurFade
-                key={education.school}
-                delay={BLUR_FADE_DELAY * 9 + id * 0.05}
-              >
-                <ResumeCard
-                  key={education.school}
-                  href={education.href}
-                  logoUrl={education.logoUrl}
-                  altText={education.school}
-                  title={education.school}
-                  subtitle={education.degree}
-                  period={`${education.start} - ${education.end}`}
-                  description={education.description}
-                />
-              </BlurFade>
-            ))}
+
+            <BlurFade delay={BLUR_FADE_DELAY * 9}>
+              <TimelineSection items={DATA.education} />
+            </BlurFade>
           </div>
         </section>
         <section id="projects">
