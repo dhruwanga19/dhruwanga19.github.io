@@ -38,19 +38,19 @@ const categoryStyles: Categories = {
   Core: {
     color: "from-blue-100 to-blue-200",
     textColor: "text-blue-100",
-    ringColor: "border-blue-400/20",
+    ringColor: "border-blue-400/10",
     orbitDuration: 20,
   },
   Frontend: {
     color: "from-purple-100 to-purple-200",
     textColor: "text-purple-100",
-    ringColor: "border-purple-400/20",
+    ringColor: "border-purple-400/10",
     orbitDuration: 25,
   },
   Backend: {
     color: "from-teal-100 to-teal-200",
     textColor: "text-teal-100",
-    ringColor: "border-teal-400/20",
+    ringColor: "border-teal-400/10",
     orbitDuration: 30,
   },
 };
