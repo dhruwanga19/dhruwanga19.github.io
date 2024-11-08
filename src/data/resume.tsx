@@ -159,7 +159,7 @@ export const DATA = {
       badges: ["React", "Next.js", "Tailwind CSS", "Jest"],
       href: "https://www.rahilflexipack.com/",
       location: "Rajkot, India",
-      title: "Front End Developer",
+      title: "Full Stack Developer Intern",
       logoUrl: "./Rhyno_logo.png",
       start: "May 2023",
       end: "Sep 2023",
@@ -188,6 +188,36 @@ export const DATA = {
             >
               Rahil Flexipack
             </a>
+          </li>
+        </ul>
+      ),
+    },
+    {
+      company: "Computer Science Undergraduate Society",
+      href: "https://csus.csd.uwo.ca/",
+      badges: ["Python", "Java", "Web 2.0"],
+      location: "London, Canada",
+      title: "Academic Tutor",
+      logoUrl: "./csus_logo.jpg",
+      start: "Oct 2022",
+      end: "Apr 2023",
+      description: (
+        <ul>
+          <li>
+            &bull; Mentored 150+ students with Web Development, Python, Java
+            fundamentals
+          </li>
+          <li>
+            &bull; Held interactive sessions teaching best practices in coding,
+            probem solving and helped in debugging assignments
+          </li>
+          <li>
+            &bull; Maintained the website for society and updated the content
+            for the upcoming events and workshops
+          </li>
+          <li>
+            &bull; Acted as a Discord Moderator for the society and onboarding
+            new students and keeping members engaged
           </li>
         </ul>
       ),
