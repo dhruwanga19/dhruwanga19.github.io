@@ -38,19 +38,19 @@ const categoryStyles: Categories = {
   Core: {
     color: "from-blue-100 to-blue-200",
     textColor: "text-blue-100",
-    ringColor: "border-blue-400/10",
+    ringColor: "border-blue-400/40",
     orbitDuration: 20,
   },
   Frontend: {
     color: "from-purple-100 to-purple-200",
     textColor: "text-purple-100",
-    ringColor: "border-purple-400/10",
+    ringColor: "border-purple-400/40",
     orbitDuration: 25,
   },
   Backend: {
     color: "from-teal-100 to-teal-200",
     textColor: "text-teal-100",
-    ringColor: "border-teal-400/10",
+    ringColor: "border-teal-400/40",
     orbitDuration: 30,
   },
 };
@@ -102,6 +102,10 @@ const CosmicSkills: React.FC<CosmicSkillsProps> = ({ skills }) => {
 
   return (
     <Card className="w-full max-w-3xl mx-auto bg-primary-foreground overflow-hidden">
+      <div className="p-4 text-center">
+        <div className="text-xl font-bold text-primary flex items-center justify-center gap-2 mb-4"></div>
+      </div>
+
       <div className="relative h-[300px] mx-auto">
         {Object.entries(categoryStyles).map(([name, { ringColor }], idx) => (
           <div
