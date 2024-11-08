@@ -41,7 +41,12 @@ export const ResumeCard = ({
   return (
     <Card className="flex">
       <div className="flex-none p-2">
-        <Link href={href || "#"} className="block cursor-pointer">
+        <Link
+          href={href || "#"}
+          className="block cursor-pointer"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
             <AvatarImage
               src={logoUrl}
@@ -53,14 +58,10 @@ export const ResumeCard = ({
         </Link>
       </div>
       <div className="flex-grow ml-4 items-center flex-col group">
-        <Link
-          href={href || "#"}
-          className="block cursor-pointer"
-          onClick={handleClick}
-        >
+        <Link href={"#"} className="block cursor-pointer" onClick={handleClick}>
           <CardHeader>
             <div className="flex items-center justify-between gap-x-2 text-base">
-              <h3 className="inline-flex items-center justify-center font-semibold leading-none text-sm sm:text-sm">
+              <h3 className="inline-flex items-center justify-center font-bold leading-none text-sm sm:text-sm">
                 {title}
                 {badges && (
                   <span className="inline-flex gap-x-1 ml-2">
@@ -86,7 +87,9 @@ export const ResumeCard = ({
                 {period}
               </div>
             </div>
-            {subtitle && <div className="font-sans text-sm">{subtitle}</div>}
+            {subtitle && (
+              <div className="font-sans font-semibold text-sm">{subtitle}</div>
+            )}
           </CardHeader>
         </Link>
         {description && (

@@ -1,3 +1,4 @@
+import CosmicSkills from "@/components/cosmic-skills";
 import AboutMe from "@/components/headers/AboutMe";
 import BlurFade from "@/components/magicui/blur-fade";
 import { ProjectCard } from "@/components/project-card";
@@ -19,7 +20,7 @@ export default function Home() {
             role="Software Engineer"
             availability="available"
             location="Canada"
-            image={"./dhruwang0.jpg"}
+            image={"/dhruwang0.jpg"}
           />
         </BlurFade>
         <section
@@ -40,12 +41,8 @@ export default function Home() {
             <BlurFade delay={BLUR_FADE_DELAY * 5}>
               <h2 className="text-xl font-bold">Skills</h2>
             </BlurFade>
-            <div className="flex flex-wrap gap-1">
-              {DATA.skills.map((skill, id) => (
-                <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                  <Badge key={skill}>{skill}</Badge>
-                </BlurFade>
-              ))}
+            <div className="flex justify-center w-full gap-1">
+              <CosmicSkills skills={DATA.skills} />
             </div>
           </div>
         </section>
@@ -92,6 +89,7 @@ export default function Home() {
                   title={education.school}
                   subtitle={education.degree}
                   period={`${education.start} - ${education.end}`}
+                  description={education.description}
                 />
               </BlurFade>
             ))}

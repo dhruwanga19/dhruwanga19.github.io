@@ -1,4 +1,4 @@
-// import { Icons } from "@/components/icons";
+// import "from "@/components/icons";
 
 import {
   DiamondPlus,
@@ -9,6 +9,7 @@ import {
   NotebookIcon,
 } from "lucide-react";
 import { prefix } from "@/components/prefix";
+import { describe } from "node:test";
 
 export const DATA = {
   name: "Dhruwang Akbari",
@@ -17,7 +18,7 @@ export const DATA = {
   location: "Canada",
   locationLink: "https://www.google.com/maps/place/toronto",
   summary:
-    "Started my journey at the peak of _[COVID-19](https://en.wikipedia.org/wiki/COVID-19)_, started pursuing a Computer Science degree right after my highschool, since I knew I wanted to be on 💻 since childhood. I recently graduated from the _[University of Western Ontario](https://www.uwo.ca/)_ (a proud Mustang) in the summer of 2024, where I was able to learn from the some of best professors and participate in hackathons. I am proud to be a part of Western Cyber Society student club where I led a team of 5 students to represent a Stock Trading algorithm using NLP and ML techniques at CUCAI 2024. I have interned at some of the tech and retail companies, and I am currently working as a Software Engineer for AI Training at Outlier AI.",
+    "Started my journey at the peak of _[COVID-19](https://en.wikipedia.org/wiki/COVID-19)_, started pursuing a Computer Science degree right after my highschool, since I knew I wanted to be on 💻 since childhood. I recently graduated from the _[University of Western Ontario](https://www.uwo.ca/)_ (a proud Mustang) in the summer of 2024, where I was able to learn from the some of best professors and meet crazy minds. I have interned at some of the tech and retail companies, and I am currently working on my personal projects and learning about AI and DevOps.",
   avatarUrl: "./me.png",
   interests: [
     "Machine Learning",
@@ -26,22 +27,31 @@ export const DATA = {
     "Entrepreneurship",
     "Product Management",
   ],
-  skills: [
-    "Python",
-    "Go",
-    "Typescript",
-    "C++",
-    "Swift",
-    "Next.js",
-
-    "Node.js",
-    "React",
-    "MongoDB",
-    "Postgres",
-    "Docker",
-    "AWS",
-    "Java",
-  ],
+  skills: {
+    Core: [
+      { name: "Python", icon: "python" },
+      { name: "JavaScript", icon: "javascript" },
+      { name: "Go", icon: "go" },
+      { name: "TypeScript", icon: "typescript" },
+      { name: "C++", icon: "cpp" },
+      { name: "Java", icon: "java" },
+    ],
+    Frontend: [
+      { name: "Next.js", icon: "nextjs" },
+      { name: "React.js", icon: "reactjs" },
+      { name: "Node.js", icon: "nodejs" },
+      // { name: "React Native", icon: "reactnative },
+      { name: "TailWindCSS", icon: "tailwindcss" },
+    ],
+    Backend: [
+      { name: "MongoDB", icon: "mongodb" },
+      { name: "Postgres", icon: "postgres" },
+      { name: "Docker", icon: "docker" },
+      { name: "AWS", icon: "aws" },
+      { name: "Google Cloud", icon: "googlecloud" },
+      { name: "Firebase", icon: "firebase" },
+    ],
+  },
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "#projects", icon: NotebookIcon, label: "Projects" },
@@ -93,15 +103,54 @@ export const DATA = {
       end: "Sep 2024",
       description: (
         <ul>
+          <li>&bull; Part-Time Role</li>
           <li>
             &bull; Implemented Reinforcement Learning with Human Feedback (RLHF)
-            to improve AI-generated code accuracy by 30%.
+            to improve AI-generated code accuracy.
           </li>
           <li>
-            &bull; Writing over 150 robust test cases in Swift and Python,
-            rigorous evaluation of human-readable summaries and feedback chain
-            of 200+ developers.
+            &bull; Writing robust test cases in Swift and Python, rigorous
+            evaluation of human-readable summaries.
           </li>
+        </ul>
+      ),
+    },
+    {
+      company: "Western University",
+      href: "https://www.uwo.ca/",
+      badges: ["Python", "React Native", "OpenAI"],
+      location: "London, Canada",
+      title: "Software Engineer",
+      logoUrl: "./westernuniv.jpg",
+      start: "Oct 2023",
+      end: "Apr 2024",
+      description: (
+        <ul>
+          <li>
+            &bull; Part of the WINGS Lab under{" "}
+            <a
+              className="text-blue-500 underline"
+              href="https://www.csd.uwo.ca/~ahaque32/index.php"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Prof. Anwar Haque
+            </a>
+          </li>
+          <li>
+            &bull; Developed a mobile chatbot application using OpenAI's ChatGPT
+            to help newcomers to London, Ontario to navigate around the city
+            with ease.
+          </li>
+          <li>
+            &bull; This chatbot provides all the information about the city
+            through a RAG pipeline and directs the user with help of Places API.
+          </li>
+          <li>
+            &bull; Built re-usable agents and tools with Langchain and
+            OpenAI&apos;s GPT-4 model to interact with the user queries.
+          </li>
+          <li>&bull; Contributed 3k+ lines of code to the project.</li>
         </ul>
       ),
     },
@@ -113,7 +162,7 @@ export const DATA = {
       title: "Front End Developer",
       logoUrl: "./Rhyno_logo.png",
       start: "May 2023",
-      end: "September 2023",
+      end: "Sep 2023",
       description: (
         <ul>
           <li>
@@ -131,7 +180,12 @@ export const DATA = {
           </li>
           <li>
             &bull; Visit:{" "}
-            <a className="text-blue-500" href="https://www.rahilflexipack.com/">
+            <a
+              className="text-blue-500"
+              href="https://www.rahilflexipack.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Rahil Flexipack
             </a>
           </li>
@@ -143,19 +197,75 @@ export const DATA = {
     {
       school: "University of Western Ontario",
       href: "https://uwo.ca",
-      degree:
-        "Bachelor's in Computer Science, Specialization with Minor in Software Engineering",
+      degree: "Bachelor's in Computer Science",
       logoUrl: "./westernuniv.jpg",
-      start: "2020",
-      end: "2024",
+      start: "Sep 2020",
+      end: "Jun 2024",
+      description: (
+        <ul>
+          <li>
+            &bull; Specialization in Computer Science, Minor in Software
+            Engineering
+          </li>
+          <li>&bull; Major Coursework </li>
+          <li>&bull; Achievements: Dean's Honour List</li>
+          <li>
+            &bull; Activites & Leadership:{" "}
+            <a
+              className="underline"
+              href="https://www.westerncybersociety.ca/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Western Cyber Society
+            </a>{" "}
+            (Lead ML Developer),{" "}
+            <a
+              href="https://www.westernuai.ca/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Western AI
+            </a>{" "}
+            (Member),{" "}
+            <a
+              href="https://csus.csd.uwo.ca/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Computer Science Undergraduate Society
+            </a>{" "}
+            (Tutor, Website Maintainer)
+          </li>
+        </ul>
+      ),
     },
     {
       school: "International Baccalaureate",
       href: "https://ibo.org",
       degree: "IB Diploma",
       logoUrl: "./ib.png",
-      start: "2018",
-      end: "2020",
+      start: "Jan 2018",
+      end: "Jan 2020",
+      description: (
+        <ul>
+          <li>&bull; Higher Level: Physics, Computer Science, Mathematics</li>
+          <li>
+            &bull; Activites & Leadership:{" "}
+            <a
+              href="https://www.rotary.org/en/get-involved/interact-clubs"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline"
+            >
+              Interact Club @ Rotary
+            </a>{" "}
+            (School Representative)
+          </li>
+        </ul>
+      ),
     },
   ],
   projects: [
