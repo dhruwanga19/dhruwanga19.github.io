@@ -36,13 +36,7 @@ export const DATA = {
       { name: "C++", icon: "cpp" },
       { name: "Java", icon: "java" },
     ],
-    Frontend: [
-      { name: "Next.js", icon: "nextjs" },
-      { name: "React.js", icon: "reactjs" },
-      { name: "Node.js", icon: "nodejs" },
-      // { name: "React Native", icon: "reactnative },
-      { name: "TailWindCSS", icon: "tailwindcss" },
-    ],
+
     Backend: [
       { name: "MongoDB", icon: "mongodb" },
       { name: "Postgres", icon: "postgres" },
@@ -50,6 +44,13 @@ export const DATA = {
       { name: "AWS", icon: "aws" },
       { name: "Google Cloud", icon: "googlecloud" },
       { name: "Firebase", icon: "firebase" },
+    ],
+    Frontend: [
+      { name: "Next.js", icon: "nextjs" },
+      { name: "React.js", icon: "reactjs" },
+      { name: "Node.js", icon: "nodejs" },
+      // { name: "React Native", icon: "reactnative },
+      { name: "TailWindCSS", icon: "tailwindcss" },
     ],
   },
   navbar: [
@@ -118,7 +119,7 @@ export const DATA = {
     {
       company: "Western University",
       href: "https://www.uwo.ca/",
-      badges: ["Python", "React Native", "OpenAI"],
+      badges: ["Python", "React Native", "OpenAI", "Langchain", "Pinecone"],
       location: "London, Canada",
       title: "Software Engineer",
       logoUrl: "./westernuniv.jpg",
@@ -237,8 +238,27 @@ export const DATA = {
             &bull; Specialization in Computer Science, Minor in Software
             Engineering
           </li>
-          <li>&bull; Major Coursework </li>
-          <li>&bull; Achievements: Dean&apos;s Honour List</li>
+
+          <li>&bull; Major Coursework:</li>
+
+          <table width="100%">
+            <tr>
+              <td width="50%">
+                <li>- Operating Systems</li>
+                <li>- Database Management</li>
+                <li>- Data Structures & Algorithms</li>
+                <li>- Distributed Systems</li>
+              </td>
+              <td width="50%">
+                <li>- Computer Networks</li>
+                <li>- System Design</li>
+                <li>- Requirements Engineering</li>
+                <li>- AI & ML</li>
+              </td>
+            </tr>
+          </table>
+
+          <li>&bull; 🏆 Achievements: Dean&apos;s Honour List</li>
           <li>
             &bull; Activites & Leadership:{" "}
             <a
