@@ -423,12 +423,7 @@ export const SkillIcon: React.FC<IconProps> = ({ name, className }) => {
       </svg>
     ),
     springboot: (
-      <svg
-        width="800px"
-        height="800px"
-        viewBox="0 0 32 32"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
         <g fill="none" fill-rule="evenodd">
           <path d="M0 0h32v32H0z" />
 
@@ -442,8 +437,6 @@ export const SkillIcon: React.FC<IconProps> = ({ name, className }) => {
     expo: (
       <svg
         fill="#000000"
-        width="800px"
-        height="800px"
         viewBox="0 0 32 32"
         xmlns="http://www.w3.org/2000/svg"
       >
