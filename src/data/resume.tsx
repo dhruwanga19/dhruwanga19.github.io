@@ -45,12 +45,15 @@ export const DATA = {
       { name: "Google Cloud", icon: "googlecloud" },
       { name: "Firebase", icon: "firebase" },
       { name: "Spring Boot", icon: "springboot" },
+      { name: "Flask", icon: "flask" },
+      { name: "Node.js", icon: "nodejs" },
     ],
     Frontend: [
       { name: "Next.js", icon: "nextjs" },
       { name: "React.js", icon: "reactjs" },
-      { name: "Node.js", icon: "nodejs" },
+
       { name: "Expo", icon: "expo" },
+      { name: "React Native", icon: "reactnative" },
       { name: "TailWindCSS", icon: "tailwindcss" },
     ],
   },
