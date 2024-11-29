@@ -35,6 +35,7 @@ export const DATA = {
       { name: "TypeScript", icon: "typescript" },
       { name: "C++", icon: "cpp" },
       { name: "Java", icon: "java" },
+      { name: "Git", icon: "git" },
     ],
 
     Backend: [
