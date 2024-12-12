@@ -1,10 +1,9 @@
-import { FileText, Github, Globe, Linkedin, Mail } from "lucide-react";
+"use client";
 import React from "react";
 import { Badge } from "../ui/badge";
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import { Button } from "../ui/button";
 import Image from "next/image";
+import { TypeAnimation } from "react-type-animation";
 
 type Props = {
   name: string;
@@ -12,6 +11,7 @@ type Props = {
   availability: "available" | "open" | "unavailable";
   location: string;
   image: string;
+  interests: readonly string[];
 };
 
 export default function AboutMe({
@@ -20,18 +20,35 @@ export default function AboutMe({
   availability,
   location,
   image,
+  interests,
 }: Props) {
+  const sequence = interests.reduce((acc: (string | number)[], interest) => {
+    return [...acc, interest, 1000];
+  }, []);
   return (
     <div className="max-w-2xl w-full h-full flex flex-col justify-center items-center gap-2 rounded-xl p-2">
       <div className="flex w-full justify-between items-center gap-2">
         <div className="flex-col flex flex-1 justify-center items-start ">
           <h2 className="flex text-4xl font-bold">hi, i&apos;m {name} 👋</h2>
-          <p className="flex text-xl font-light">
-            Aspiring {role} based in {location} 🇨🇦. <br />
-            Constanly learning, building and challenging myself 🚀. <br />
-            Recent Graduate - Class of 2024 🎓. <br />
-            Love to travel, willing to relocate ✈️.
-          </p>
+          <div className="flex flex-col text-xl font-light">
+            <p>
+              <span className="font-normal">{role}</span> based in {location} 🇨🇦
+            </p>
+            <p>Constanly learning, building and challenging myself 🚀</p>
+            <p>Recent Graduate - Class of 2024 🎓</p>
+            <p className="flex items-center gap-1">
+              Interested in{" "}
+              <span className="text-blue-500 font-medium inline-block">
+                <TypeAnimation
+                  sequence={sequence}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                />
+              </span>
+            </p>
+            <p>Love to travel, willing to relocate ✈️</p>
+          </div>
         </div>
         <div className="flex-col justify-items-center">
           <div className="inline-flex justify-center text-md my-2">

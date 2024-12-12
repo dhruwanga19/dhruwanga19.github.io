@@ -23,6 +23,7 @@ export default function Home() {
             availability="available"
             location="Canada"
             image={"/dhruwang0.jpg"}
+            interests={DATA.interests}
           />
         </BlurFade>
         <section
@@ -153,7 +154,18 @@ export default function Home() {
         <section id="footer">
           <div className=" flex text-l items-end justify-end p-5">
             <BlurFade delay={BLUR_FADE_DELAY * 17}>
-              <span className="">Made with ❤️ by Dhruwang</span>
+              <span className="font-extralight">
+                Inspired by{" "}
+                <a
+                  className="text-blue-500 hover:underline"
+                  href="https://magicui.design/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Magic UI
+                </a>{" "}
+                | Made with ❤️ by Dhruwang
+              </span>
             </BlurFade>
           </div>
         </section>

@@ -21,11 +21,12 @@ export const DATA = {
     "Started my journey at the peak of _[COVID-19](https://en.wikipedia.org/wiki/COVID-19)_, started pursuing a Computer Science degree right after my highschool, since I knew I wanted to be on 💻 since childhood. I recently graduated from the _[University of Western Ontario](https://www.uwo.ca/)_ (a proud Mustang) in the summer of 2024, where I was able to learn from the some of best professors and meet crazy minds. I have interned at some of the tech and retail companies, and I am currently working on my personal projects and learning about AI and DevOps.",
   avatarUrl: "./me.png",
   interests: [
-    "Machine Learning",
-    "Artificial Intelligence",
-    "Software Engineering",
-    "Entrepreneurship",
-    "Product Management",
+    "Web Development 💻",
+    "Cloud Computing ☁️",
+    "DevOps 🛠️",
+    "Mobile Development 📱",
+    "Artificial Intelligence 🤖",
+    "Open Source 📦",
   ],
   skills: {
     Core: [
