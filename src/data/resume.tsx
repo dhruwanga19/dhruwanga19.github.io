@@ -162,6 +162,46 @@ export const DATA = {
       ),
     },
     {
+      company: "Western Cyber Society",
+      href: "https://www.westerncybersociety.ca/",
+      badges: ["Python", "HuggingFace", "Matplotlib"],
+      location: "London, Canada",
+      title: "Machine Learning Developer",
+      logoUrl:
+        "https://www.westerncybersociety.ca/_next/image?url=%2FwcsLogo.png&w=256&q=75",
+      start: "Oct 2023",
+      end: "Mar 2024",
+      description: (
+        <ul>
+          <li>
+            &bull; Collaborated in a team of 4 to process financial data from
+            Yahoo Finance API and Twitter API
+          </li>
+          <li>
+            &bull; Developed a sentiment analysis pipeline using
+            Twitter-RoBERTa-base model from HuggingFace
+          </li>
+          <li>
+            &bull; Normalized tweet data & built linear regression models using
+            scikit-learn to analyze correlation between tweet sentiments and
+            stock price movement
+          </li>
+          <li>
+            &bull; Visualized the data using Matplotlib to present the findings
+            at{" "}
+            <a
+              className="underline"
+              href="https://cucai.ca/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              CUCAI 2024
+            </a>
+          </li>
+        </ul>
+      ),
+    },
+    {
       company: "Rahil Flexipack",
       badges: ["React", "Next.js", "Tailwind CSS", "Jest"],
       href: "https://www.rahilflexipack.com/",
@@ -206,8 +246,8 @@ export const DATA = {
       location: "London, Canada",
       title: "Academic Tutor",
       logoUrl: "./csus_logo.jpg",
-      start: "Oct 2022",
-      end: "Apr 2023",
+      start: "Sep 2022",
+      end: "Dec 2022",
       description: (
         <ul>
           <li>
