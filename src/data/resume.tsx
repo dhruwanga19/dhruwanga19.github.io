@@ -276,8 +276,8 @@ export const DATA = {
       href: "https://uwo.ca",
       degree: "Bachelor's in Computer Science",
       logoUrl: "./westernuniv.jpg",
-      start: "Sep 2020",
-      end: "Jun 2024",
+      start: "2020",
+      end: "2024",
       description: (
         <ul>
           <li>
