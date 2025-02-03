@@ -343,8 +343,8 @@ export const DATA = {
       href: "https://ibo.org",
       degree: "IB Diploma",
       logoUrl: "./ib.png",
-      start: "Jan 2018",
-      end: "Jan 2020",
+      start: "2018",
+      end: "2020",
       description: (
         <ul>
           <li>&bull; Higher Level: Physics, Computer Science, Mathematics</li>
