@@ -1,18 +1,11 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Card } from "@/components/ui/card";
-import { Star, Orbit } from "lucide-react";
 import { SkillIcon } from "./icons";
 
 interface Skill {
   name: string;
   icon: string;
-}
-
-interface SkillsData {
-  Core: readonly Skill[];
-  Frontend: readonly Skill[];
-  Backend: readonly Skill[];
 }
 
 interface CosmicSkillsProps {
@@ -23,192 +16,207 @@ interface CosmicSkillsProps {
   };
 }
 
-interface CategoryDetails {
-  color: string;
-  textColor: string;
-  ringColor: string;
-  orbitDuration: number;
-}
+// Distribute points evenly on a sphere using Fibonacci algorithm
+const generateFibonacciSphere = (samples: number, radius: number) => {
+  const points: { x: number; y: number; z: number }[] = [];
+  const phi = Math.PI * (3 - Math.sqrt(5)); // Golden angle in radians
 
-interface Categories {
-  [key: string]: CategoryDetails;
-}
+  for (let i = 0; i < samples; i++) {
+    const y = 1 - (i / (samples - 1)) * 2; // y goes from 1 to -1
+    const radiusAtY = Math.sqrt(1 - y * y); // radius at y
+    const theta = phi * i; // golden angle increment
 
-const categoryStyles: Categories = {
-  Core: {
-    color: "from-blue-100 to-blue-200",
-    textColor: "text-blue-100",
-    ringColor: "border-blue-400",
-    orbitDuration: 30,
-  },
-  Backend: {
-    color: "from-teal-100 to-teal-200",
-    textColor: "text-teal-100",
-    ringColor: "border-teal-400",
-    orbitDuration: 35,
-  },
-  Frontend: {
-    color: "from-purple-100 to-purple-200",
-    textColor: "text-purple-100",
-    ringColor: "border-purple-400",
-    orbitDuration: 40,
-  },
+    const x = Math.cos(theta) * radiusAtY;
+    const z = Math.sin(theta) * radiusAtY;
+
+    points.push({
+      x: x * radius,
+      y: y * radius,
+      z: z * radius,
+    });
+  }
+
+  return points;
 };
 
-const CosmicSkills: React.FC<CosmicSkillsProps> = ({ skills }) => {
-  const [activeCategory, setActiveCategory] = useState<string | null>(null);
+const IconCloud: React.FC<CosmicSkillsProps> = ({ skills }) => {
   const [hoveredSkill, setHoveredSkill] = useState<Skill | null>(null);
-  const [screenSize, setScreenSize] = useState({
-    isMobile: false,
-    isTablet: false,
-    isDesktop: true,
-  });
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
+  const cloudRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number | null>(null);
+  const [allSkills, setAllSkills] = useState<Skill[]>([]);
+  const [skillPositions, setSkillPositions] = useState<
+    Array<{ skill: Skill; x: number; y: number; z: number }>
+  >([]);
 
+  // Combine all skills into a single array
   useEffect(() => {
-    const updateScreenSize = () => {
-      setScreenSize({
-        isMobile: window.innerWidth < 768,
-        isTablet: window.innerWidth >= 768 && window.innerWidth < 1024,
-        isDesktop: window.innerWidth >= 1024,
+    const combined = [...skills.Core, ...skills.Frontend, ...skills.Backend];
+    setAllSkills(combined);
+  }, [skills]);
+
+  // Generate evenly distributed positions for all skills
+  useEffect(() => {
+    if (allSkills.length === 0) return;
+
+    const radius = 150; // Cloud radius
+    const points = generateFibonacciSphere(allSkills.length, radius);
+
+    // Shuffle the points array to randomize which skill gets which position
+    const shuffledPoints = [...points].sort(() => Math.random() - 0.5);
+
+    const positions = allSkills.map((skill, i) => {
+      return {
+        skill,
+        x: shuffledPoints[i].x,
+        y: shuffledPoints[i].y,
+        z: shuffledPoints[i].z,
+      };
+    });
+
+    setSkillPositions(positions);
+  }, [allSkills]);
+
+  // Track mouse movement
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!cloudRef.current) return;
+
+      const rect = cloudRef.current.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      // Calculate mouse position relative to the center of the cloud
+      setMousePosition({
+        x: (e.clientX - centerX) / rect.width,
+        y: (e.clientY - centerY) / rect.height,
       });
     };
 
-    updateScreenSize();
-    window.addEventListener("resize", updateScreenSize);
-    return () => window.removeEventListener("resize", updateScreenSize);
+    document.addEventListener("mousemove", handleMouseMove);
+    return () => document.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
-  const calculatePosition = (
-    index: number,
-    total: number,
-    radius: number
-  ): { x: number; y: number } => {
-    const angle = (index * 2 * Math.PI) / total - Math.PI / 2;
-    return {
-      x: radius * Math.cos(angle),
-      y: radius * Math.sin(angle),
-    };
-  };
+  // Continuous rotation animation
+  useEffect(() => {
+    const animate = () => {
+      setRotation((prev) => {
+        if (isHovering) {
+          // When hovering, add cursor influence to the existing rotation
+          // without resetting position
+          const mouseInfluenceX = mousePosition.y * 2; // Inverted for natural feel
+          const mouseInfluenceY = mousePosition.x * 2;
 
-  const getRadius = (categoryIndex: number) => {
-    const baseRadius = screenSize.isDesktop
-      ? 100
-      : screenSize.isTablet
-      ? 90
-      : 80;
-    const increment = screenSize.isDesktop ? 60 : screenSize.isTablet ? 50 : 40;
-    return baseRadius + categoryIndex * increment;
-  };
+          return {
+            // Continue existing rotation with cursor influence
+            x: prev.x + mouseInfluenceX * 0.1,
+            y: prev.y + mouseInfluenceY * 0.1,
+          };
+        } else {
+          // When not hovering, continue rotating in one direction
+          return {
+            x: prev.x * 0.95, // Gradually return x rotation to 0
+            y: (prev.y + 0.2) % 360, // Continuous rotation around y-axis
+          };
+        }
+      });
+      animationRef.current = requestAnimationFrame(animate);
+    };
+
+    animationRef.current = requestAnimationFrame(animate);
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current);
+      }
+    };
+  }, [isHovering, mousePosition]);
 
   return (
-    <Card className="w-full max-w-3xl mx-auto bg-primary-foreground overflow-hidden">
-      <div className="p-4 text-center">
-        <div className="text-xl font-bold text-primary flex items-center justify-center gap-2 mb-20"></div>
-      </div>
-
-      <div className="relative h-[300px] mx-auto">
-        {Object.entries(categoryStyles).map(([name, { ringColor }], idx) => (
-          <div
-            key={`ring-${name}`}
-            className={`absolute top-1/2 left-1/2 rounded-full border-2 ${ringColor}`}
-            style={{
-              width: `${getRadius(idx) * 2}px`,
-              height: `${getRadius(idx) * 2}px`,
-              transform: "translate(-50%, -50%)",
-              opacity: activeCategory === name ? 0.8 : 0.3,
-            }}
-          />
-        ))}
-
+    <Card className="w-full max-w-3xl mx-auto overflow-hidden">
+      <div
+        className="relative h-[400px] mx-auto"
+        ref={cloudRef}
+        onMouseEnter={() => setIsHovering(true)}
+        onMouseLeave={() => setIsHovering(false)}
+      >
+        {/* The cloud container */}
         <div
-          className="absolute top-1/2 left-1/2 w-16 h-16 rounded-full 
-                    bg-gradient-to-r from-yellow-400 to-orange-500
-                    flex items-center justify-center text-white font-bold
-                    shadow-lg shadow-orange-500/50"
-          style={{ transform: "translate(-50%, -50%)" }}
+          className="absolute top-1/2 left-1/2 w-full h-full transform -translate-x-1/2 -translate-y-1/2"
+          style={{
+            perspective: "1000px",
+            transformStyle: "preserve-3d",
+          }}
         >
-          <div className="text-center">
-            <div className="text-sm">Core</div>
-            <div className="text-xs opacity-75">Skills</div>
-          </div>
-        </div>
+          {/* Cloud rotation based on animation or mouse position */}
+          <div
+            className="w-full h-full"
+            style={{
+              transformStyle: "preserve-3d",
+              transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
+              transition: "transform 0.05s linear",
+            }}
+          >
+            {skillPositions.map(({ skill, x, y, z }) => {
+              const isHovered = hoveredSkill === skill;
+              const scale = isHovered ? 1.3 : 1;
+              const zIndex = isHovered ? 10 : Math.floor(z + 150); // Higher z-index for hovered items
 
-        {(
-          Object.entries(skills) as [keyof typeof skills, readonly Skill[]][]
-        ).map(([categoryName, skillsList], categoryIndex) => {
-          const categoryStyle = categoryStyles[categoryName];
-          return (
-            <div
-              key={categoryName}
-              className="absolute top-1/2 left-1/2 orbit"
-              style={{
-                animationDuration: `${categoryStyle.orbitDuration}s`,
-                transform: "translate(-50%, -50%)",
-              }}
-              onMouseEnter={() => setActiveCategory(categoryName)}
-              onMouseLeave={() => setActiveCategory(null)}
-            >
-              {skillsList.map((skill, index) => {
-                const position = calculatePosition(
-                  index,
-                  skillsList.length,
-                  getRadius(categoryIndex)
-                );
-                const isHovered = hoveredSkill === skill;
-
-                return (
+              return (
+                <div
+                  key={skill.name}
+                  className="absolute rounded-full
+                          flex items-center justify-center cursor-pointer text-white
+                          transition-all duration-200"
+                  style={{
+                    width: "50px",
+                    height: "50px",
+                    left: "50%",
+                    top: "50%",
+                    transform: `translate3d(-50%, -50%, 0) 
+                               translate3d(${x}px, ${y}px, ${z}px)
+                               scale(${scale})`,
+                    zIndex: zIndex,
+                    opacity: 0.8 + (z + 150) / 300,
+                    transition: "transform 0.3s ease, opacity 0.3s ease",
+                    perspective: "1000px",
+                    transformStyle: "preserve-3d",
+                  }}
+                  onMouseEnter={() => setHoveredSkill(skill)}
+                  onMouseLeave={() => setHoveredSkill(null)}
+                >
+                  {/* Apply a container with billboard effect to always face the camera */}
                   <div
-                    key={skill.name}
-                    className={`absolute w-12 h-12 -ml-6 -mt-6
-                              rounded-full bg-gradient-to-br ${categoryStyle.color} 
-                              flex items-center justify-center cursor-pointer ${categoryStyle.textColor} 
-                              font-medium text-xs text-center p-2
-                              shadow-lg hover:scale-110 transition-transform duration-200`}
+                    className="w-full h-full flex items-center justify-center"
                     style={{
-                      left: "50%",
-                      top: "50%",
-                      transform: `translate(${position.x}px, ${
-                        position.y
-                      }px) rotate(-${(index * 360) / skillsList.length}deg)`,
+                      // Billboard effect - always face the camera
+                      transform: `rotateY(${-rotation.y}deg) rotateX(${-rotation.x}deg)`,
+                      transformStyle: "preserve-3d",
                     }}
-                    onMouseEnter={() => setHoveredSkill(skill)}
-                    onMouseLeave={() => setHoveredSkill(null)}
                   >
-                    <div className="relative">
+                    <div className="relative w-8 h-8">
                       <SkillIcon name={skill.icon} className="w-full h-full" />
                       {isHovered && (
                         <div
-                          className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 
-                                    bg-black/80 text-white px-2 py-1 rounded text-xs whitespace-nowrap z-10"
+                          className="absolute -bottom-8 left-1/2 transform -translate-x-1/2
+                                    bg-black/80 text-white px-2 py-1 rounded text-xs whitespace-nowrap z-50"
                         >
                           {skill.name}
                         </div>
                       )}
                     </div>
                   </div>
-                );
-              })}
-            </div>
-          );
-        })}
-      </div>
-
-      <div className="p-4 flex justify-center gap-6 mt-20">
-        {Object.entries(categoryStyles).map(([name, { color }]) => (
-          <div
-            key={name}
-            className="flex items-center gap-2 cursor-pointer text-white hover:scale-110 transition-transform duration-200"
-            onMouseEnter={() => setActiveCategory(name)}
-            onMouseLeave={() => setActiveCategory(null)}
-          >
-            <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${color}`} />
-            <span className="text-xs text-primary font-medium">{name}</span>
-            <Orbit className="w-3 h-3 text-primary" />
+                </div>
+              );
+            })}
           </div>
-        ))}
+        </div>
       </div>
     </Card>
   );
 };
 
-export default CosmicSkills;
+// Export as CosmicSkills for backward compatibility
+export default IconCloud as unknown as React.FC<CosmicSkillsProps>;

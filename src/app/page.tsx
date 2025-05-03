@@ -39,42 +39,50 @@ export default function Home() {
             </Markdown>
           </BlurFade>
         </section>
-        <section id="skills">
-          <div className="flex min-h-0 flex-col gap-y-3">
-            <BlurFade delay={BLUR_FADE_DELAY * 5}>
-              <h2 className="text-xl font-bold">Skills</h2>
-            </BlurFade>
-            <div className="flex justify-center w-full gap-1">
-              <BlurFade className="flex w-full" delay={BLUR_FADE_DELAY * 6}>
-                <CosmicSkills skills={DATA.skills} />
-              </BlurFade>
-            </div>
-          </div>
-        </section>
+
         <section id="work">
           <div className="max-w-2xl w-full flex flex-col min-h-0 mt-6 gap-y-3">
-            <BlurFade delay={BLUR_FADE_DELAY * 6}>
+            <BlurFade delay={BLUR_FADE_DELAY * 5}>
               <h2 className="text-xl font-bold">Work Experience</h2>
             </BlurFade>
-            <BlurFade delay={BLUR_FADE_DELAY * 7}>
+            <BlurFade delay={BLUR_FADE_DELAY * 6}>
               <TimelineSection items={DATA.work} />
             </BlurFade>
           </div>
         </section>
         <section id="education">
           <div className="flex min-h-0 flex-col gap-y-3">
-            <BlurFade delay={BLUR_FADE_DELAY * 8}>
+            <BlurFade delay={BLUR_FADE_DELAY * 7}>
               <h2 className="text-xl font-bold">Education</h2>
             </BlurFade>
 
-            <BlurFade delay={BLUR_FADE_DELAY * 9}>
+            <BlurFade delay={BLUR_FADE_DELAY * 8}>
               <TimelineSection items={DATA.education} />
             </BlurFade>
           </div>
         </section>
+        <section id="skills">
+          <div className="flex min-h-0 flex-col gap-y-3">
+            <BlurFade delay={BLUR_FADE_DELAY * 9}>
+              <h2 className="text-xl font-bold">Skills</h2>
+            </BlurFade>
+            <div className="flex flex-wrap gap-1">
+              {DATA.skillsOther.map((skill, id) => (
+                <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
+                  <Badge key={skill}>{skill}</Badge>
+                </BlurFade>
+              ))}
+            </div>
+            <div className="flex justify-center w-full gap-1">
+              <BlurFade className="flex w-full" delay={BLUR_FADE_DELAY * 11}>
+                <CosmicSkills skills={DATA.skills} />
+              </BlurFade>
+            </div>
+          </div>
+        </section>
         <section id="projects">
           <div className="space-y-12 w-full py-12">
-            <BlurFade delay={BLUR_FADE_DELAY * 11}>
+            <BlurFade delay={BLUR_FADE_DELAY * 12}>
               <div className="flex flex-col items-center justify-center space-y-4 text-center">
                 <div className="space-y-2">
                   <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
@@ -102,7 +110,7 @@ export default function Home() {
               {DATA.projects.map((project, id) => (
                 <BlurFade
                   key={project.title}
-                  delay={BLUR_FADE_DELAY * 12 + id * 0.05}
+                  delay={BLUR_FADE_DELAY * 13 + id * 0.05}
                 >
                   <ProjectCard
                     href={project.href}
@@ -122,7 +130,7 @@ export default function Home() {
         </section>
         <section id="contact">
           <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12 ">
-            <BlurFade delay={BLUR_FADE_DELAY * 16}>
+            <BlurFade delay={BLUR_FADE_DELAY * 14}>
               <div className="space-y-3">
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
                   Contact
@@ -153,7 +161,7 @@ export default function Home() {
         </section>
         <section id="footer">
           <div className=" flex text-l items-end justify-end p-5">
-            <BlurFade delay={BLUR_FADE_DELAY * 17}>
+            <BlurFade delay={BLUR_FADE_DELAY * 15}>
               <span className="font-extralight">
                 Inspired by{" "}
                 <a
