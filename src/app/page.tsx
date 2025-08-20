@@ -20,7 +20,7 @@ export default function Home() {
           <AboutMe
             name="dhruwang"
             role="Software Engineer"
-            availability="available"
+            availability="open"
             location="Canada"
             image={"/dhruwang0.jpg"}
             interests={DATA.interests}

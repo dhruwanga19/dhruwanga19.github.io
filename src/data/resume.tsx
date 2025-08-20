@@ -18,7 +18,7 @@ export const DATA = {
   location: "Canada",
   locationLink: "https://www.google.com/maps/place/toronto",
   summary:
-    "Started my journey at the peak of _[COVID-19](https://en.wikipedia.org/wiki/COVID-19)_, started pursuing a Computer Science degree right after my highschool, since I knew I wanted to be on 💻 since childhood. I recently graduated from the _[University of Western Ontario](https://www.uwo.ca/)_ (a proud Mustang) in the summer of 2024, where I was able to learn from the some of best professors and meet crazy minds. I have interned at some of the tech and retail companies, and I am currently working on my personal projects and learning about AI and DevOps.",
+    "Started my journey at the peak of _[COVID-19](https://en.wikipedia.org/wiki/COVID-19)_, pursuing a Computer Science degree right after my highschool, since I knew I wanted to be on 💻 since childhood. Graduated from the _[University of Western Ontario](https://www.uwo.ca/)_ (a proud Mustang) in the summer of 2024. Took on a contract to develop an e-commerce solution for Maple Delight Pizza in Ottawa. Previously interned at some of the tech and retail companies.",
   avatarUrl: "./me.png",
   interests: [
     "Web Development 💻",
@@ -141,26 +141,24 @@ export const DATA = {
 
   work: [
     {
-      company: "Outlier AI",
-      href: "https://outlier.ai/",
-      badges: ["Swift", "Python", "Reinforcement Learning"],
-      location: "Remote",
-      title: "Software Engineer for AI Training",
-      logoUrl: "./outlier_logo.svg",
-      start: "Jun 2024",
-      end: "Sep 2024",
+      company: "Maple Delight Pizza",
+      href: "https://mapledelightpizza.ca/",
+      badges: ["React", "WordPress", "PHP", "HTML", "CSS"],
+      location: "Ottawa, ON, Canada",
+      title: "Full Stack Web Developer (Contract)",
+      logoUrl: "./mapledelight.png",
+      start: "Jul 2024",
+      end: "Jul 2025",
       description: (
-        <ul>
-          <li>&bull; Part-Time Role</li>
-          <li>
-            &bull; Implemented Reinforcement Learning with Human Feedback (RLHF)
-            to improve AI-generated code accuracy.
-          </li>
-          <li>
-            &bull; Writing robust test cases in Swift and Python, rigorous
-            evaluation of human-readable summaries.
-          </li>
-        </ul>
+        <div>
+          <p>
+            I was responsible for architecting, developing and maintaining the
+            e-commerce pizza store. I worked with React and PostreSQL database
+            to develop a secured checkout flow. Developed the website using
+            WordPress and PHP plugins. I also integrated the Stripe for payments
+            and a secured checkout flow.
+          </p>
+        </div>
       ),
     },
     {
@@ -171,7 +169,7 @@ export const DATA = {
       title: "Software Engineer",
       logoUrl: "./westernuniv.jpg",
       start: "Oct 2023",
-      end: "Apr 2024",
+      end: "May 2024",
       description: (
         <ul>
           <li>

@@ -28,14 +28,15 @@ export default function AboutMe({
   return (
     <div className="max-w-2xl w-full h-full flex flex-col justify-center items-center gap-2 rounded-xl p-2">
       <div className="flex w-full justify-between items-center gap-2">
-        <div className="flex-col flex flex-1 justify-center items-start ">
-          <h2 className="flex text-4xl font-bold">hi, i&apos;m {name} 👋</h2>
-          <div className="flex flex-col text-xl font-light">
+        <div className="flex-col flex flex-1 justify-center items-start mt-2 ">
+          <h2 className="flex text-5xl font-bold">hi, i&apos;m {name} 👋</h2>
+          <div className="flex flex-col text-xl font-light mt-4">
             <p>
-              <span className="font-normal">{role}</span> based in {location} 🇨🇦
+              <span className="font-normal">{role}</span> based in {location}{" "}
+              &#x1F1E8;&#x1F1E6;
             </p>
             <p>Constanly learning, building and challenging myself 🚀</p>
-            <p>Recent Graduate - Class of 2024 🎓</p>
+            {/* <p>Recent Graduate - Class of 2024 🎓</p> */}
             <p className="flex items-center gap-1">
               Interested in{" "}
               <span className="text-blue-500 font-medium inline-block">
@@ -56,10 +57,10 @@ export default function AboutMe({
               variant="outline"
               className={cn(
                 availability === "available"
-                  ? "bg-green-500 text-green-200"
+                  ? "bg-orange-500 text-orange-200"
                   : availability === "open"
-                  ? "bg-yellow-500 text-yellow-200"
-                  : "bg-red-500 text-red-200"
+                  ? "bg-green-500 text-green-200"
+                  : "bg-blue-500 text-blue-200"
               )}
             >
               {availability === "available"
