@@ -57,7 +57,7 @@ export const ResumeCard = ({
           </Avatar>
         </Link>
       </div>
-      <div className="flex-grow ml-4 items-center flex-col group">
+      <div className="grow ml-4 items-center flex-col group">
         <Link href={"#"} className="block cursor-pointer" onClick={handleClick}>
           <CardHeader>
             <div className="flex items-center justify-between gap-x-2 text-base">

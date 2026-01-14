@@ -137,7 +137,7 @@ const IconCloud: React.FC<CosmicSkillsProps> = ({ skills }) => {
   return (
     <Card className="w-full max-w-3xl mx-auto overflow-hidden">
       <div
-        className="relative h-[400px] mx-auto"
+        className="relative h-100 mx-auto"
         ref={cloudRef}
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}

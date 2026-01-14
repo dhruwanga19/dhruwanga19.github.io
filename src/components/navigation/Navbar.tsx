@@ -16,7 +16,7 @@ export default function Navbar({}: Props) {
     <div className="pointer-events-none fixed inset-x-0 top-0 z-30 mx-auto mb-1 flex origin-top h-14">
       <Dock
         direction="middle"
-        className="z-50 pointer-events-auto relative mx-auto flex h-full items-center px-1 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 border border-border navbar-shadow"
+        className="z-50 pointer-events-auto relative mx-auto flex h-full items-center px-1 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 navbar-shadow"
       >
         {DATA.navbar.map((item) => (
           <DockIcon key={item.href}>
