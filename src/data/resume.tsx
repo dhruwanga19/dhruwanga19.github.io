@@ -327,20 +327,22 @@ export const DATA = {
           <li>&bull; Major Coursework:</li>
 
           <table width="100%">
-            <tr>
-              <td width="50%">
-                <li>- Operating Systems</li>
-                <li>- Database Management</li>
-                <li>- Data Structures & Algorithms</li>
-                <li>- Distributed Systems</li>
-              </td>
-              <td width="50%">
-                <li>- Computer Networks</li>
-                <li>- System Design</li>
-                <li>- Requirements Engineering</li>
-                <li>- AI & ML</li>
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td width="50%">
+                  <li>- Operating Systems</li>
+                  <li>- Database Management</li>
+                  <li>- Data Structures & Algorithms</li>
+                  <li>- Distributed Systems</li>
+                </td>
+                <td width="50%">
+                  <li>- Computer Networks</li>
+                  <li>- System Design</li>
+                  <li>- Requirements Engineering</li>
+                  <li>- AI & ML</li>
+                </td>
+              </tr>
+            </tbody>
           </table>
 
           <li>&bull; 🏆 Achievements: Dean&apos;s Honour List</li>

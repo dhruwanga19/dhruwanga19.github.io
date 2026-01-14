@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 const BLUR_FADE_DELAY = 0.05;
 
@@ -34,9 +35,9 @@ export default function Home() {
             <h2 className="text-xl font-bold">Who Am I?</h2>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
-            <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-              {DATA.summary}
-            </Markdown>
+            <div className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
+              <Markdown remarkPlugins={[remarkGfm]}>{DATA.summary}</Markdown>
+            </div>
           </BlurFade>
         </section>
 

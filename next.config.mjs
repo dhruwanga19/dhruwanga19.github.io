@@ -2,7 +2,14 @@
 const nextConfig = {
   output: "export",
   reactStrictMode: true,
-  images: { domains: ["raw.githubusercontent.com"] },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "raw.githubusercontent.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
