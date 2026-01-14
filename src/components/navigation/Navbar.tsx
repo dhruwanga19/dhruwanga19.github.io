@@ -16,7 +16,7 @@ export default function Navbar({}: Props) {
     <div className="pointer-events-none fixed inset-x-0 top-0 z-30 mx-auto mb-1 flex origin-top h-14">
       <Dock
         direction="middle"
-        className="z-50 pointer-events-auto relative mx-auto flex h-full items-center px-1 bg-background [box-shadow:0_0_0_1px_rgba(0,0,0,.03),0_2px_4px_rgba(0,0,0,.05),0_12px_24px_rgba(0,0,0,.05)] transform-gpu dark:[border:1px_solid_rgba(255,255,255,.1)] dark:[box-shadow:0_-20px_80px_-20px_#ffffff1f_inset] "
+        className="z-50 pointer-events-auto relative mx-auto flex h-full items-center px-1 bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60 border border-border navbar-shadow"
       >
         {DATA.navbar.map((item) => (
           <DockIcon key={item.href}>
@@ -61,12 +61,16 @@ export default function Navbar({}: Props) {
               </Tooltip>
             </DockIcon>
           ))}
-        <Separator orientation="vertical" className="h-full py-2" />
+        <Separator orientation="vertical" className="h-full" />
         <DockIcon>
           <Tooltip>
             <TooltipTrigger asChild>
               <Link href={DATA.contact.Resume.url}>
-                <Button variant="ghost" size="icon" className="size-12">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="size-12 cursor-pointer"
+                >
                   <DATA.contact.Resume.icon className="size-4" />
                 </Button>
               </Link>
@@ -74,14 +78,14 @@ export default function Navbar({}: Props) {
             <TooltipContent>{DATA.contact.Resume.name}</TooltipContent>
           </Tooltip>
         </DockIcon>
-        <Separator orientation="vertical" className="h-full py-2" />
+        <Separator orientation="vertical" className="h-full" />
         <DockIcon>
           <Tooltip>
             <TooltipTrigger asChild>
               <ModeToggle />
             </TooltipTrigger>
             <TooltipContent>
-              <p>Theme</p>
+              <p>Toggle Theme</p>
             </TooltipContent>
           </Tooltip>
         </DockIcon>

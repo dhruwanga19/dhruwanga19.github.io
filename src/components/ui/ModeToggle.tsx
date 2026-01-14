@@ -5,32 +5,36 @@ import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 
-export function ModeToggle() {
-  const { theme, setTheme } = useTheme();
+type ModeToggleProps = React.ComponentProps<typeof Button>;
 
-  return (
-    <Button
-      variant="ghost"
-      size="icon"
-      className="px-2"
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-    >
-      <Sun
-        className="h-[1.2rem] w-[1.2rem] rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0"
-        size={24}
-      />
-      <Moon
-        className="absolute h-[1.2rem] w-[1.2rem] rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100"
-        size={24}
-      />
-      <span className="sr-only">Toggle theme</span>
-    </Button>
-  );
-}
+export const ModeToggle = React.forwardRef<HTMLButtonElement, ModeToggleProps>(
+  function ModeToggle({ onClick, ...props }, ref) {
+    const { resolvedTheme, setTheme } = useTheme();
+    const current = resolvedTheme || "light";
+
+    const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+      setTheme(current === "dark" ? "light" : "dark");
+      if (onClick) onClick(e);
+    };
+
+    return (
+      <Button
+        ref={ref}
+        variant="ghost"
+        size="icon"
+        className="relative cursor-pointer"
+        onClick={handleClick}
+        {...props}
+      >
+        {current === "light" ? (
+          <Sun className="h-[1.2rem] w-[1.2rem] transition-all" />
+        ) : (
+          <Moon className="h-[1.2rem] w-[1.2rem] transition-all" />
+        )}
+        <span className="sr-only">Toggle theme</span>
+      </Button>
+    );
+  }
+);
+ModeToggle.displayName = "ModeToggle";

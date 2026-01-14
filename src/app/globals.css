@@ -67,6 +67,30 @@
   }
 }
 
+@layer utilities {
+  .navbar-shadow {
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.03), 0 2px 4px rgba(0, 0, 0, 0.05),
+      0 12px 24px rgba(0, 0, 0, 0.05);
+  }
+  
+  .dark .navbar-shadow {
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2),
+      0 12px 24px rgba(0, 0, 0, 0.4), 0 -20px 80px -20px rgba(255, 255, 255, 0.12) inset;
+  }
+}
+
+@layer components {
+  .button-ghost-hover:hover {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+  
+  .button-outline-hover:hover {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+}
+
 @keyframes orbit {
   from {
     transform: translate(-50%, -50%) rotate(0deg);
