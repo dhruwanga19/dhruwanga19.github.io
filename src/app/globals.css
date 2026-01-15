@@ -100,6 +100,19 @@
   }
 }
 
+@layer components {
+  .button-ghost-hover:hover {
+    background-color: hsl(var(--accent));
+    color: hsl(var(--accent-foreground));
+  }
+  
+  .tooltip-content {
+    background-color: hsl(var(--popover));
+    color: hsl(var(--popover-foreground));
+    border-color: hsl(var(--border));
+  }
+}
+
 @layer base {
   * {
     border-color: hsl(var(--border));
