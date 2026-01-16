@@ -149,15 +149,26 @@ export const DATA = {
       logoUrl: "./mapledelight.png",
       start: "Jul 2024",
       end: "Jul 2025",
+      summary:
+        "Developed and maintained the e-commerce website for Maple Delight Pizza, an online pizza store based in Ottawa, Canada.",
       description: (
         <div>
-          <p>
-            I was responsible for architecting, developing and maintaining the
-            e-commerce pizza store. I worked with React and PostreSQL database
-            to develop a secured checkout flow. Developed the website using
-            WordPress and PHP plugins. I also integrated the Stripe for payments
-            and a secured checkout flow.
-          </p>
+          <ul>
+            <li>
+              &bull; Responsible for architecting, developing and maintaining
+              the e-commerce pizza store.
+            </li>
+            <li>
+              &bull; Developed the store website using WordPress and PHP
+              plugins. I also integrated the WooCommerce plugin for payments and
+              a secured checkout flow.
+            </li>
+            <li>
+              &bull; Implemented SEO best practices to improve the
+              website&apos;s search engine ranking, resulting in a 25% increase
+              in organic traffic.
+            </li>
+          </ul>
         </div>
       ),
     },
@@ -166,10 +177,12 @@ export const DATA = {
       href: "https://www.uwo.ca/",
       badges: ["Python", "React Native", "OpenAI", "Langchain", "Pinecone"],
       location: "London, Canada",
-      title: "Software Engineer",
+      title: "Software Engineer Intern",
       logoUrl: "./westernuniv.jpg",
       start: "Oct 2023",
       end: "May 2024",
+      summary:
+        "Full-Stack application of mobile chatbot application using OpenAI's ChatGPT",
       description: (
         <ul>
           <li>
@@ -210,6 +223,8 @@ export const DATA = {
         "https://www.westerncybersociety.ca/_next/image?url=%2FwcsLogo.png&w=256&q=75",
       start: "Oct 2023",
       end: "Mar 2024",
+      summary:
+        "Sentiment analysis pipeline between Twitter sentiments and stock price movements.",
       description: (
         <ul>
           <li>
@@ -249,6 +264,8 @@ export const DATA = {
       logoUrl: "./Rhyno_logo.png",
       start: "May 2023",
       end: "Sep 2023",
+      summary:
+        "Developed and updated the new services page and product portfolios.",
       description: (
         <ul>
           <li>
@@ -287,6 +304,7 @@ export const DATA = {
       logoUrl: "./csus_logo.jpg",
       start: "Sep 2022",
       end: "Dec 2022",
+      summary: "Provided tutoring services for first-year CS courses.",
       description: (
         <ul>
           <li>
@@ -317,6 +335,7 @@ export const DATA = {
       logoUrl: "./westernuniv.jpg",
       start: "2020",
       end: "2024",
+      summary: "Explore. Learn. Grow. Repeat.",
       description: (
         <ul>
           <li>
@@ -386,6 +405,7 @@ export const DATA = {
       logoUrl: "./ib.png",
       start: "2018",
       end: "2020",
+      summary: "Made lifelong friends and truly enjoyed the experience.",
       description: (
         <ul>
           <li>&bull; Higher Level: Physics, Computer Science, Mathematics</li>

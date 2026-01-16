@@ -24,10 +24,9 @@ export default function Home() {
             availability="open"
             location="Canada"
             image={"/dhruwang0.jpg"}
-            interests={DATA.interests}
           />
         </BlurFade>
-        <section
+        {/* <section
           className="max-w-2xl w-full flex flex-col items-start justify-start mt-6"
           id="about"
         >
@@ -39,12 +38,12 @@ export default function Home() {
               <Markdown remarkPlugins={[remarkGfm]}>{DATA.summary}</Markdown>
             </div>
           </BlurFade>
-        </section>
+        </section> */}
 
         <section id="work">
           <div className="max-w-2xl w-full flex flex-col min-h-0 mt-6 gap-y-3">
             <BlurFade delay={BLUR_FADE_DELAY * 5}>
-              <h2 className="text-xl font-bold">Work Experience</h2>
+              <h2 className="text-xl font-bold">Experience</h2>
             </BlurFade>
             <BlurFade delay={BLUR_FADE_DELAY * 6}>
               <TimelineSection items={DATA.work} />
@@ -161,20 +160,32 @@ export default function Home() {
           </div>
         </section>
         <section id="footer">
-          <div className=" flex text-l items-end justify-end p-5">
+          <div className="flex flex-col items-center justify-center gap-6 py-12">
             <BlurFade delay={BLUR_FADE_DELAY * 15}>
-              <span className="font-extralight">
-                Inspired by{" "}
-                <a
-                  className="text-blue-500 hover:underline"
-                  href="https://magicui.design/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Magic UI
-                </a>{" "}
-                | Made with ❤️ by Dhruwang
-              </span>
+              <div className="flex flex-col items-center gap-4">
+                <h3 className="text-xl text-muted-foreground">
+                  Made with ❤️ by Dhruwang
+                </h3>
+
+                {/* Social Links */}
+                <div className="flex gap-4">
+                  {Object.entries(DATA.contact.social).map(([key, social]) => {
+                    const Icon = social.icon;
+                    return (
+                      <Link
+                        key={key}
+                        href={social.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110 hover:-translate-y-1"
+                        aria-label={social.name}
+                      >
+                        <Icon className="w-5 h-5" />
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
             </BlurFade>
           </div>
         </section>

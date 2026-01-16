@@ -3,7 +3,9 @@ import React from "react";
 import { Badge } from "../ui/badge";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { TypeAnimation } from "react-type-animation";
+import { DATA } from "@/data/resume";
+import Link from "next/link";
+import { Separator } from "@radix-ui/react-separator";
 
 type Props = {
   name: string;
@@ -11,7 +13,6 @@ type Props = {
   availability: "available" | "open" | "unavailable";
   location: string;
   image: string;
-  interests: readonly string[];
 };
 
 export default function AboutMe({
@@ -20,64 +21,75 @@ export default function AboutMe({
   availability,
   location,
   image,
-  interests,
 }: Props) {
-  const sequence = interests.reduce((acc: (string | number)[], interest) => {
-    return [...acc, interest, 1000];
-  }, []);
   return (
-    <div className="max-w-2xl w-full h-full flex flex-col justify-center items-center gap-2 rounded-xl p-2">
-      <div className="flex w-full justify-between items-center gap-2">
-        <div className="flex-col flex flex-1 justify-center items-start mt-2 ">
-          <h2 className="flex text-5xl font-bold">hi, i&apos;m {name} 👋</h2>
-          <div className="flex flex-col text-xl font-light mt-4">
-            <p>
-              <span className="font-normal">{role}</span> based in {location}{" "}
-              &#x1F1E8;&#x1F1E6;
-            </p>
-            <p>Constanly learning, building and challenging myself 🚀</p>
-            {/* <p>Recent Graduate - Class of 2024 🎓</p> */}
-            <p className="flex items-center gap-1">
-              Interested in{" "}
-              <span className="text-blue-500 font-medium inline-block">
-                <TypeAnimation
-                  sequence={sequence}
-                  wrapper="span"
-                  speed={50}
-                  repeat={Infinity}
-                />
-              </span>
-            </p>
-            <p>Love to travel, willing to relocate ✈️</p>
-          </div>
-        </div>
-        <div className="flex-col justify-items-center">
-          <div className="inline-flex justify-center text-md my-2">
-            <Badge
-              variant="outline"
-              className={cn(
-                availability === "available"
-                  ? "bg-orange-500 text-orange-200"
-                  : availability === "open"
-                  ? "bg-green-500 text-green-200"
-                  : "bg-blue-500 text-blue-200"
-              )}
-            >
-              {availability === "available"
-                ? "Available"
+    <div className="max-w-3xl w-full flex flex-col items-center gap-8 p-8">
+      <div className="relative">
+        <Image
+          src={image}
+          alt={name}
+          width={160}
+          height={160}
+          className="w-40 h-40 rounded-full object-cover"
+        />
+        <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 flex w-full justify-center">
+          <Badge
+            variant="outline"
+            className={cn(
+              "text-xs",
+              availability === "available"
+                ? "bg-indigo-500 text-indigo-900"
                 : availability === "open"
-                ? "Open to offers"
-                : "Unavailable"}
-            </Badge>
-          </div>
-          <Image
-            src={image}
-            alt={name}
-            width={100}
-            height={100}
-            className="w-24 h-24 rounded-full object-fill"
-          />
+                ? "bg-green-400 text-green-900"
+                : "bg-red-400 text-red-900"
+            )}
+          >
+            {availability === "available"
+              ? "Available"
+              : availability === "open"
+              ? "Open to Opportunities"
+              : "Unavailable"}
+          </Badge>
         </div>
+      </div>
+
+      <div className="text-center space-y-2">
+        <h1 className="text-4xl md:text-5xl font-bold capitalize">
+          Hi, I&apos;m {name}
+        </h1>
+        <p className="text-xl text-muted-foreground">
+          {location} | {role}
+        </p>
+      </div>
+
+      <p className="text-center text-muted-foreground max-w-2xl leading-relaxed">
+        I am a Full-Stack Software Engineer building scalable, fault-tolerant
+        applications. With experience in both frontend and backend systems, I am
+        focusing on Cloud Engineering and DevOps practices to enhance deployment
+        and infrastructure management. Passionate to learn continuously.
+      </p>
+
+      <Separator
+        orientation="horizontal"
+        className="w-50 border border-secondary/30 dark:border-secondary/70"
+      />
+
+      <div className="flex gap-4 items-center">
+        {Object.entries(DATA.contact.social).map(([key, social]) => {
+          const Icon = social.icon;
+          return (
+            <Link
+              key={key}
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted-foreground hover:text-foreground transition-all duration-200 hover:scale-110 hover:-translate-y-1"
+              aria-label={social.name}
+            >
+              <Icon className="w-5 h-5" />
+            </Link>
+          );
+        })}
       </div>
     </div>
   );
